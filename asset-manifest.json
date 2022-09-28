@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/testTusk-1_React_Currency-Exchange/static/css/main.7acaea2f.css",
-    "main.js": "/testTusk-1_React_Currency-Exchange/static/js/main.07d3183d.js",
+    "main.js": "/testTusk-1_React_Currency-Exchange/static/js/main.33f664cb.js",
     "index.html": "/testTusk-1_React_Currency-Exchange/index.html",
     "main.7acaea2f.css.map": "/testTusk-1_React_Currency-Exchange/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/testTusk-1_React_Currency-Exchange/static/js/main.07d3183d.js.map"
+    "main.33f664cb.js.map": "/testTusk-1_React_Currency-Exchange/static/js/main.33f664cb.js.map"
   },
   "entrypoints": [
     "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/js/main.33f664cb.js"
   ]
 }
