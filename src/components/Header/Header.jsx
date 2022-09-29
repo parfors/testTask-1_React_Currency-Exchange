@@ -1,17 +1,34 @@
-import styled from 'styled-components';
+import { useEffect } from 'react';
 import { AiOutlineDollarCircle } from 'react-icons/ai';
-import { getExchangeRates } from 'helpers/api';
+import { useDispatch } from 'react-redux';
+import { fetchCurrency } from 'redux/currency/currency-operations';
+import styled from 'styled-components';
+import { useSelector } from 'react-redux';
+import { getCurrencyRate, getLoading } from 'redux/selectors';
 
 export default function Header() {
-  getExchangeRates();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchCurrency());
+  }, [dispatch]);
+
+  const loading = useSelector(getLoading);
+  const currencyRates = useSelector(getCurrencyRate);
+  const usdRate = currencyRates.find(el => el.ccy === 'USD')?.buy;
+  const eurRate = currencyRates.find(el => el.ccy === 'EUR')?.buy;
+
   return (
     <HeaderStyled>
       <SectionStyled>
         <LogoStyled />
-        <CurrencyWrap>
-          <CurrencyCourse>USD</CurrencyCourse>
-          <CurrencyCourse>EUR</CurrencyCourse>
-        </CurrencyWrap>
+        {loading ? (
+          <LoadingStyled>Loading</LoadingStyled>
+        ) : (
+          <CurrencyWrap>
+            <CurrencyCourse>USD: {usdRate}</CurrencyCourse>
+            <CurrencyCourse>EUR: {eurRate}</CurrencyCourse>
+          </CurrencyWrap>
+        )}
       </SectionStyled>
     </HeaderStyled>
   );
@@ -26,3 +43,5 @@ export const LogoStyled = styled(AiOutlineDollarCircle)``;
 export const CurrencyWrap = styled.div``;
 
 export const CurrencyCourse = styled.p``;
+
+export const LoadingStyled = styled.p``;

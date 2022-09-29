@@ -1,11 +1,10 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: 'https://bank.gov.ua/NBU_Exchange/exchange?json',
+  baseURL: 'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5',
 });
 
 export const getExchangeRates = async () => {
-  const response = await instance.get('/');
-  console.log(response);
+  const response = await instance.get('');
   return response.data;
 };
