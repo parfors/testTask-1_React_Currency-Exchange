@@ -1,12 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { fetchCurrency } from './currency-operations';
 
-const initialState = {
-  currency: [],
-  loading: false,
-  error: null,
-};
-
 const currencySlice = createSlice({
   name: 'currency',
   initialState: {
