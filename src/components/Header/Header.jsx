@@ -22,7 +22,7 @@ export default function Header() {
       <SectionStyled>
         <LogoStyled />
         {loading ? (
-          <LoadingStyled>Loading</LoadingStyled>
+          <LoadingStyled>Loading...</LoadingStyled>
         ) : (
           <CurrencyWrap>
             <CurrencyCourse>USD: {usdRate}</CurrencyCourse>
@@ -34,14 +34,33 @@ export default function Header() {
   );
 }
 
-export const HeaderStyled = styled.header``;
+export const HeaderStyled = styled.header`
+  background-color: ${p => p.theme.colors.gray};
+`;
 
-export const SectionStyled = styled.section``;
+export const SectionStyled = styled.section`
+  width: 1200px;
+  margin: 0 auto;
+  padding: 30px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-export const LogoStyled = styled(AiOutlineDollarCircle)``;
+export const LogoStyled = styled(AiOutlineDollarCircle)`
+  width: 100px;
+  height: auto;
+  &:hover {
+    fill: ${p => p.theme.colors.accent};
+  }
+`;
 
 export const CurrencyWrap = styled.div``;
 
-export const CurrencyCourse = styled.p``;
+export const CurrencyCourse = styled.p`
+  font-size: ${p => p.theme.fontSizes.medium};
+`;
 
-export const LoadingStyled = styled.p``;
+export const LoadingStyled = styled.p`
+  font-size: ${p => p.theme.fontSizes.xl};
+`;
