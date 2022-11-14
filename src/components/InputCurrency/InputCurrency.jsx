@@ -11,6 +11,8 @@ export default function InputCurrency({
   const { currency, value } = state;
   const rate = modifiedCurrencyRates.find(el => el.ccy === currency)?.buy || 1;
 
+  // console.log(rate)
+
   const selectChangeHandler = e => {
     setSelectedCurrency(e.target.value);
     const selectedRate = modifiedCurrencyRates.find(
